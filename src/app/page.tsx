@@ -118,7 +118,7 @@ export default function Home() {
             />
           </span>
           <div className="flex flex-col my-5">
-            <label htmlFor="amount" className="text-Slate-500">
+            <label htmlFor="amount" className="text-Slate-500 my-2">
               Mortgage Amount
             </label>
 
@@ -127,7 +127,7 @@ export default function Home() {
                 type="number"
                 name="amount"
                 id="amount"
-                className="p-2 w-full pl-14 rounded-md"
+                className="p-2 md:py-3 w-full pl-14 rounded-md"
                 onFocus={() => handleInputFocus("amount")}
                 onBlur={() => handleInputBlur("amount")}
               />
@@ -145,36 +145,38 @@ export default function Home() {
             {isError.amount && errorMsg}
           </div>
 
-          <div className="flex flex-col my-5">
-            <label htmlFor="term" className="text-Slate-500">
-              Mortgage Term
-            </label>
-            <span className="border border-Slate-300 relative rounded-md font-bold">
-              <input
-                type="number"
-                name="term"
-                id="term"
-                className="p-2 w-full pl-4 rounded-md"
-                onFocus={() => handleInputFocus("term")}
-                onBlur={() => handleInputBlur("term")}
-              />
-              <p
-                className={clsx(
-                  "absolute text-Slate-700 right-0 h-full w-16 grid place-content-center top-0 rounded-r-md",
-                  {
-                    "bg-Lime": isFocused.term,
-                    "bg-Slate-100": !isFocused.term,
-                    "bg-Red": isError.term,
-                  }
-                )}
-              >
-                years
-              </p>
-            </span>
-            {isError.term && errorMsg}
+          <div className="md:grid md:grid-cols-2 md:gap-4">
+            <div className="flex flex-col mb-5">
+              <label htmlFor="term" className="text-Slate-500 my-2">
+                Mortgage Term
+              </label>
+              <span className="border border-Slate-300 relative rounded-md font-bold">
+                <input
+                  type="number"
+                  name="term"
+                  id="term"
+                  className="p-2 md:py-3 w-full pl-4 rounded-md"
+                  onFocus={() => handleInputFocus("term")}
+                  onBlur={() => handleInputBlur("term")}
+                />
+                <p
+                  className={clsx(
+                    "absolute text-Slate-700 right-0 h-full w-16 grid place-content-center top-0 rounded-r-md",
+                    {
+                      "bg-Lime": isFocused.term,
+                      "bg-Slate-100": !isFocused.term,
+                      "bg-Red": isError.term,
+                    }
+                  )}
+                >
+                  years
+                </p>
+              </span>
+              {isError.term && errorMsg}
+            </div>
 
-            <div className="flex flex-col mt-5">
-              <label htmlFor="interest" className="text-Slate-500">
+            <div className="flex flex-col ">
+              <label htmlFor="interest" className="text-Slate-500 my-2">
                 Interest Rate
               </label>
               <span className="border border-Slate-300 relative rounded-md font-bold">
@@ -183,7 +185,7 @@ export default function Home() {
                   step="0.01"
                   name="interest"
                   id="interest"
-                  className="p-2 w-full pl-4 rounded-md"
+                  className="p-2 md:py-3 w-full pl-4 rounded-md"
                   onFocus={() => handleInputFocus("interest")}
                   onBlur={() => handleInputBlur("interest")}
                 />
@@ -202,7 +204,7 @@ export default function Home() {
           <p className="text-Slate-500">Mortgage Type</p>
 
           <div
-            className={`border border-Slate-300 relative rounded-md font-bold flex p-2 my-2  hover:border-Lime ${
+            className={`border border-Slate-300 relative rounded-md font-bold flex md:py-3 p-2 my-2  hover:border-Lime ${
               isFocused.type1 ? "bg-light-lime" : ""
             }`}
           >
@@ -220,7 +222,7 @@ export default function Home() {
           </div>
 
           <div
-            className={`border border-Slate-300 relative rounded-md font-bold p-2 hover:border-Lime flex ${
+            className={`border border-Slate-300 relative rounded-md font-bold p-2 my-4 md:p-3 hover:border-Lime flex ${
               isFocused.type2 ? "bg-light-lime" : ""
             }`}
           >
@@ -239,7 +241,7 @@ export default function Home() {
           {isError.type && errorMsg}
           <button
             type="submit"
-            className="flex justify-center md:mb-0 md:mx-0 md:mt-12 items-center gap-4 w-full mx-auto max-w-[20rem]  text-Slate-900 bg-Lime rounded-[3rem] border-none px-6 py-3 my-8"
+            className="flex justify-center md:mb-3 md:mx-0 md:mt-12 items-center gap-4 w-full mx-auto max-w-[20rem]  text-Slate-900 bg-Lime rounded-[3rem] border-none px-6 py-3 my-8"
           >
             <Image
               className=""
